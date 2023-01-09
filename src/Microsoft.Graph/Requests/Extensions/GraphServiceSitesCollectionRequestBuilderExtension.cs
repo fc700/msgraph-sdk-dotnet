@@ -19,12 +19,12 @@ namespace Microsoft.Graph
             {
                 if (!siteRelativePath.StartsWith("/"))
                 {
-                    siteRelativePath = string.Format("/{0}:", siteRelativePath);
+                    siteRelativePath = string.Format("/{0}", siteRelativePath);
                 }
             }
 
             return new SiteRequestBuilder(
-                string.Format("{0}/{1}:{2}", this.RequestUrl, hostname, siteRelativePath),
+                string.Format("{0}/{1}:{2}:", this.RequestUrl, hostname, siteRelativePath.TrimEnd(':')),
                 this.Client);
         }
 

@@ -103,6 +103,13 @@ namespace Microsoft.Graph.Sites {
             return requestInfo;
         }
         /// <summary>
+        /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+        /// </summary>
+        /// <param name="rawUrl">The raw URL to use for the request builder.</param>
+        public SitesRequestBuilder WithUrl(string rawUrl) {
+            return new SitesRequestBuilder(rawUrl, RequestAdapter);
+        }
+        /// <summary>
         /// Search across a SharePoint tenant for [sites][] that match keywords provided. The only property that works for sorting is createdDateTime. The search filter is a free text search that uses multiple properties when retrieving the search results.
         /// </summary>
         public class SitesRequestBuilderGetQueryParameters {

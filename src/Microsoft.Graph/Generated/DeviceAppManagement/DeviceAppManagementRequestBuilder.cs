@@ -200,6 +200,13 @@ namespace Microsoft.Graph.DeviceAppManagement {
             return requestInfo;
         }
         /// <summary>
+        /// Returns a request builder with the provided arbitrary URL. Using this method means any other path or query parameters are ignored.
+        /// </summary>
+        /// <param name="rawUrl">The raw URL to use for the request builder.</param>
+        public DeviceAppManagementRequestBuilder WithUrl(string rawUrl) {
+            return new DeviceAppManagementRequestBuilder(rawUrl, RequestAdapter);
+        }
+        /// <summary>
         /// Read properties and relationships of the deviceAppManagement object.
         /// </summary>
         public class DeviceAppManagementRequestBuilderGetQueryParameters {
